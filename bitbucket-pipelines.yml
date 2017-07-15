@@ -9,7 +9,7 @@ pipelines:
 
     - step:
         script: # Modify the commands below to build your repository.
-          - export DATABASE_URL=postgresql://test_user:test_user_password@localhost/pipelines
+          - export DATABASE_URL=postgresql://ruby-rogues:rubyrogues@localhost/pipelines
           - bundle install
           - rake db:setup
           - rake db:test:prepare
