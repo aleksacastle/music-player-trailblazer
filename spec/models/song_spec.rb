@@ -13,15 +13,15 @@
 #  file        :string
 #
 
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Song, type: :model do
 
-  context 'belongs_to' do
+  context "belongs_to" do
     it { should belong_to(:album) }
   end
 
-  context 'has_and_belongs_to_many' do
+  context "has_and_belongs_to_many" do
     it { should have_and_belong_to_many(:genres) }
     it { should have_and_belong_to_many(:playlist) }
   end

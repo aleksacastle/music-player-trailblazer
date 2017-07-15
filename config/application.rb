@@ -1,6 +1,6 @@
-require_relative 'boot'
+require_relative "boot"
 
-require 'rails/all'
+require "rails/all"
 
 require "trailblazer/rails/railtie"
 require "tyrant/railtie"
@@ -11,7 +11,6 @@ Bundler.require(*Rails.groups)
 
 module RubyRogues
   class Application < Rails::Application
-
     config.generators do |g|
       g.test_framework :rspec,
         fixtures: true,
@@ -27,7 +26,7 @@ module RubyRogues
     config.load_defaults 5.1
 
     config do
-      require 'pry'
+      require "pry"
       config.console = Pry
     end
 

@@ -26,8 +26,8 @@ gem "jquery-rails"
 gem "pg"
 gem "simple_form"
 gem "slim-rails"
-gem 'carrierwave', '~> 1.0'
-gem 'file_validators'
+gem "carrierwave", "~> 1.0"
+gem "file_validators"
 
 ######Authorizacion and Authentication######
 gem "tyrant"
@@ -59,10 +59,10 @@ group :development do
   gem "awesome_print", require: "ap"
 
   # deploy stuff
-  gem 'capistrano', '~> 3.6'
-  gem 'capistrano-rails', '~> 1.3'
-  gem 'capistrano-passenger'
-  gem 'capistrano-rbenv', '~> 2.0'
+  gem "capistrano", "~> 3.6"
+  gem "capistrano-rails", "~> 1.3"
+  gem "capistrano-passenger"
+  gem "capistrano-rbenv", "~> 2.0"
 
 end
 

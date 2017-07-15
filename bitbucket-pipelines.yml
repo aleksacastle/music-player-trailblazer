@@ -9,7 +9,7 @@ pipelines:
   default:
     - step:
         script: # Modify the commands below to build your repository.
-          - export DATABASE_URL=postgresql://ruby-rouges:RubyRouges@localhost/pipelines
+          - export DATABASE_URL=postgresql://ruby-rogues:RubyRogues@localhost
           - bundle install
           - cp config/database.yml.example config/database.yml
           - rake db:setup
@@ -25,5 +25,5 @@ definitions:
       image: postgres
       environment:
         POSTGRES_DB: ruby-rogues_test
-        POSTGRES_USER: ruby-rouges
-        POSTGRES_PASSWORD: RubyRouges
+        POSTGRES_USER: ruby-rogues
+        POSTGRES_PASSWORD: RubyRogues

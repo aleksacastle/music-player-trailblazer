@@ -19,12 +19,12 @@ RSpec.configure do |config|
   # assertions if you prefer.
   config.expect_with :rspec do |expectations|
 
-  # delete test files after each test
-  config.after(:each) do
-    if Rails.env.test? || Rails.env.cucumber?
-      FileUtils.rm_rf(Dir["#{Rails.root}/spec/support/uploads"])
+    # delete test files after each test
+    config.after(:each) do
+      if Rails.env.test? || Rails.env.cucumber?
+        FileUtils.rm_rf(Dir["#{Rails.root}/spec/support/uploads"])
+      end
     end
-  end
     # This option will default to `true` in RSpec 4. It makes the `description`
     # and `failure_message` of custom matchers include text for helper methods
     # defined using `chain`, e.g.:
