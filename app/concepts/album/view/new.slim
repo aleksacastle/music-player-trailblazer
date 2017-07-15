@@ -1,0 +1,11 @@
+.container
+  .row
+    h2 New Albums
+    =simple_form_for model do |f|
+      .form-group
+        =f.input :title, label: false, placeholder: "Title", input_html: { class: "form-control"}
+      .form-group
+        =f.input :file_cover, as: :file, label: false, input_html: { class: "btn btn-default" }
+      .form-group
+        =f.submit "Create album", class: "btn btn-primary"
+        

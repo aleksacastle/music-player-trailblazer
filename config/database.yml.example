@@ -1,0 +1,16 @@
+default: &default
+  host: postgres
+  adapter: postgresql
+  port: 5432
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: ruby-rogues_development
+
+test:
+  <<: *default
+  database: ruby-rogues_test
+  username: <%= ENV['POSTGRES_USER'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
