@@ -24,6 +24,6 @@ definitions:
     postgres:
       image: postgres
       environment:
-        POSTGRES_DB: pipelines
+        POSTGRES_DB: ruby-rogues_test
         POSTGRES_USER: test_user
         POSTGRES_PASSWORD: test_user_password
