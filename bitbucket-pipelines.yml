@@ -25,6 +25,6 @@ definitions:
       image: postgres
       environment:
         POSTGRES_DB: ruby-rogues_test
-        POSTGRES_HOST: postgres
+        POSTGRES_HOST: localhost
         POSTGRES_USER: ruby-rouges
         POSTGRES_PASSWORD: RubyRouges
