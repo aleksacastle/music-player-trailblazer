@@ -1,0 +1,28 @@
+image: ruby:2.4.1
+pipelines:
+  default:
+    - step:
+        script:
+          - ruby -v
+    - step:
+        script:
+           - bundle install
+
+    - step:
+        script: # Modify the commands below to build your repository.
+          - export DATABASE_URL=postgresql://test_user:test_user_password@localhost/pipelines
+          - bundle install
+          - rake db:setup
+          - rake db:test:prepare
+          - rspec
+        services:
+          - postgres
+
+definitions:
+  services:
+    postgres:
+      image: postgres
+      environment:
+        POSTGRES_DB: ruby-rogues_test
+        POSTGRES_USER: ruby-rogues
+        POSTGRES_PASSWORD: rubyrogues
