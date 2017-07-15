@@ -11,7 +11,7 @@ pipelines:
         script: # Modify the commands below to build your repository.
           - export DATABASE_URL=postgresql://ruby-rogues:RubyRogues@localhost
           - bundle install
-          - cp config/database.yml.example config/database.yml
+          - mv config/database.yml.example config/database.yml
           - rake db:setup
           - rake db:migrate RAILS_ENV=test
           - rubocop
