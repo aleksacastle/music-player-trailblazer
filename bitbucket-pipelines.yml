@@ -9,9 +9,9 @@ pipelines:
   default:
     - step:
         script: # Modify the commands below to build your repository.
-          - export DATABASE_URL=postgresql://test_user:test_user_password@localhost/pipelines
+          - export DATABASE_URL=postgresql://ruby-rouges:RubyRouges@postgres/ruby-rogues_test
           - bundle install
-          - cp config/database.yml.example config/database.yml 
+          - cp config/database.yml.example config/database.yml
           - rake db:setup
           - rake db:test:prepare
           - rubocop
@@ -25,5 +25,6 @@ definitions:
       image: postgres
       environment:
         POSTGRES_DB: ruby-rogues_test
-        POSTGRES_USER: test_user
-        POSTGRES_PASSWORD: test_user_password
+        POSTGRES_HOST: postgres
+        POSTGRES_USER: ruby-rouges
+        POSTGRES_PASSWORD: RubyRouges
