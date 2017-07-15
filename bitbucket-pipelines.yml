@@ -1,18 +1,20 @@
+i # This is a sample build configuration for Ruby.
+# Check our guides at https://confluence.atlassian.com/x/8r-5Mw for more examples.
+# Only use spaces to indent your .yml configuration.
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
 image: ruby:2.4.1
+
 pipelines:
   default:
     - step:
-      script: # Modify the commands below to build your repository.
-        - apt-get update
-        - apt-get install -y build-essential libpq-dev nodejs
-        - bundle install
-
-    - step:
         script: # Modify the commands below to build your repository.
-          - export DATABASE_URL=postgresql://ruby-rogues:rubyrogues@localhost/pipelines
+          - export DATABASE_URL=postgresql://test_user:test_user_password@localhost/pipelines
           - bundle install
+          - cp config/database.yml.example config/database.yml 
           - rake db:setup
           - rake db:test:prepare
+          - rubocop
           - rspec
         services:
           - postgres
@@ -22,6 +24,6 @@ definitions:
     postgres:
       image: postgres
       environment:
-        POSTGRES_DB: ruby-rogues_test
-        POSTGRES_USER: ruby-rogues
-        POSTGRES_PASSWORD: rubyrogues
+        POSTGRES_DB: pipelines
+        POSTGRES_USER: test_user
+        POSTGRES_PASSWORD: test_user_password
