@@ -1,15 +1,31 @@
 class SongsController < ApplicationRecord
+  def index
+    run Song::Index
+  end
+
+  def show
+    @song = Song.find(params[:id])
+  end
+
   def new
-    Song.new
+    form Song::Create
   end
 
   def create
-    Song.new(song_params)
+    run Song::Create do |op|
+      flash[:notice] = "Created product: [#{op.model.title}] \"#{op.model.artist}\""
+
+      return redirect_to song_path(op.model)
+    end
+
+    render action: :new
   end
 
-  private
+  def update
+    run Song::Update
+  end
 
-    def song_params
-      params.require(:song).permit(:title, :artist, :file)
-    end
+  def delete
+    run Song::Delete
+  end
 end
