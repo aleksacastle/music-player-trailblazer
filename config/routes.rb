@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :user
   resources :songs
   resources :albums
+  resources :playlist
 
   root "home#index"
 end
