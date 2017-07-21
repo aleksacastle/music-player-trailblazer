@@ -5,7 +5,7 @@ class Song::Delete < Trailblazer::Operation
 
   private
 
-  def destroy!(_operation, model:, **)
-    model.destroy
-  end
+    def destroy!(_operation, model:, **)
+      model.destroy
+    end
 end
