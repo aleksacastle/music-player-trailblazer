@@ -16,6 +16,5 @@ class SongPolicy
   end
 
   protected
-
-  attr_reader :user, :model
+    attr_reader :user, :model
 end
