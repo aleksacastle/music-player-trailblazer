@@ -1,1 +1,6 @@
 h2 Hello!!!
+- if tyrant.current_user.artist?
+    = link_to "Create album"
+    = link_to "Create playlist"
+- else
+    = link_to "Create playlist"
