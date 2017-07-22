@@ -13,7 +13,7 @@ class SongsController < ApplicationRecord
 
   def create
     run Song::Create do |op|
-      flash[:notice] = "Created product: [#{op.model.title}] \"#{op.model.artist}\""
+      flash[:notice] = "Created song: [#{op.model.title}] \"#{op.model.artist}\""
 
       return redirect_to song_path(op.model)
     end

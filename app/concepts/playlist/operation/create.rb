@@ -1,7 +1,7 @@
 class Playlist::Create < Trailblazer::Operation
   step Model(Playlist, :new)
   step :assign_current_user!
-  step Contract::Build( constant: PlaylistContract)
+  step Contract::Build( constant: Playlist::Contract::Create)
   step Contract::Validate()
   failure :validation_error!
   step Contract::Persist()
